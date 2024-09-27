@@ -7,14 +7,18 @@ import SinglePageCharProduct from '../SinglePageCharProduct/SinglePageCharProduc
 import { useParams } from 'react-router-dom';
 import Footer from '../Footer/Footer';
 import AddToCartModal from '../ModalAddToCart/ModalAddToCart';
+import { useEffect } from 'react';
 
 export default function SingleProductPage({ data, addToCart, setIsModalOpen, isModalOpen }) {
     const { id } = useParams();
     const item = data.find(product => product.id === parseInt(id));
     const [activeTab, setActiveTab] = useState('about');
     const [fade, setFade] = useState(false);
-
     const [quantity, setQuantity] = useState(1);
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+      }, []);
     
     const incrementQuantity = () => {
         setQuantity(prevQuantity => prevQuantity + 1);

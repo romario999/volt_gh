@@ -1,5 +1,6 @@
 .product_page_wrapper {
-    padding-top: 130px;
+    padding-top: 80px;
+    align-self: center;
     display: flex;
     justify-content: center;
     vertical-align: middle;
