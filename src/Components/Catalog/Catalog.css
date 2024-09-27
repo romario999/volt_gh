@@ -1,0 +1,81 @@
+.catalog {
+    display: flex;
+    justify-content: center;
+    padding: 50px 20px;
+}
+
+.catalog_title {
+    font-weight: bold;
+   /* padding-left: 380px; */
+    font-size: 62px;
+    display: flex;
+}
+
+.catalog_subtitle {
+    /*margin-left: 380px;   */
+    margin-bottom: 40px;
+    margin-top: 15px;
+    max-width: 1000px;
+}
+
+.catalog_title_wrapper {
+    padding-left: 170px;
+    padding-top: 70px;
+    max-width: 1400px;
+    display: block;
+    margin: 0 auto;
+}
+
+@media (max-width: 915px) {
+    .catalog_title_wrapper {
+        padding-left: 10px; /* Мінімальні відступи */
+        padding-top: 30px;
+    }
+}
+
+@media (max-width: 768px) {
+    .catalog {
+        padding: 40px 10px; /* Зменшення відступів */
+    }
+
+    .catalog_title {
+        font-size: 48px;
+         /* Зменшення розміру шрифту */
+    }
+
+    .catalog_subtitle {
+        font-size: 16px; /* Зменшення розміру шрифту для підзаголовка */
+        margin-bottom: 30px;
+        margin-top: 10px;
+    }
+
+    .catalog_title_wrapper {
+        padding-left: 20px; /* Зменшення відступів */
+        padding-top: 50px;
+    }
+}
+
+/* Для мобільних телефонів */
+@media (max-width: 480px) {
+    .catalog {
+        padding: 30px 5px; /* Зменшення відступів */
+    }
+
+    .catalog_title {
+        font-size: 36px; /* Зменшення розміру шрифту */
+        text-align: center;
+        padding-top: 50px; /* Центрування заголовка */
+    }
+
+    .catalog_subtitle {
+        font-size: 14px; /* Зменшення розміру шрифту для підзаголовка */
+        margin-bottom: 20px;
+        margin-top: 5px;
+         /* Центрування підзаголовка */
+    }
+
+    .catalog_title_wrapper {
+        padding-left: 10px; /* Мінімальні відступи */
+        padding-top: 30px;
+    }
+}
