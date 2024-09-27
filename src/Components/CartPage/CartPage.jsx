@@ -4,12 +4,17 @@ import './CartPage.css';
 import deleteSvg from '../../assets/icons/delete.svg';
 import orderSvg from '../../assets/icons/order.svg';
 import ModalOrder from '../ModalOrder/ModalOrder';
+import { useEffect } from 'react';
 
 
 export default function CartPage({ cartList, setCartList, removeFromCart, decrementQuantity, incrementQuantity, isModalOpen, setIsModalOpen }) {
     const totalPrice = cartList.reduce((acc, [product, quantity]) => {
         return acc + product.price * quantity;
     }, 0);
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
     
     return (
         <>
