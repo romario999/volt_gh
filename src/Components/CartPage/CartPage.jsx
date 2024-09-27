@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import Header from '../Header/Header';
 import './CartPage.css';
 import deleteSvg from '../../assets/icons/delete.svg';
@@ -20,12 +21,16 @@ export default function CartPage({ cartList, setCartList, removeFromCart, decrem
                     <div className="cart_list" key={item[0].id}>
                         <div className="cart_list_item">
                             <div className="cart_list_item_wrapper">
+                            <Link to={`/goods/${item[0].id}`}>
                                 <img src={item[0].imgSrc} alt={item[0].title} className='cart_item_img'/>
+                                </Link>
                                 <div className="cart_list_item_info">
+                                    <Link to={`/goods/${item[0].id}`} style={{ color: 'black' }}>
                                     <div className="cart_list_item_title">
                                         <h4>{item[0].title}</h4>    
                                         <p>{item[0].capacity}</p>
                                     </div>
+                                    </Link>
                                     <div className="product_page_btns_wrapper">
                                         <div className="quantity_control">
                                             <button onClick={(e) => {e.stopPropagation(); decrementQuantity(i);}}>-</button>

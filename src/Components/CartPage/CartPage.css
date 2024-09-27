@@ -210,6 +210,8 @@
     .cart_list_item_title {
         margin: 0 auto;
         text-align: center;
+        color: black; /* Встановлює чорний колір для тексту всередині .cart_list_item_title */
+        text-decoration: none;
     }
 
     .cart_item_img {
