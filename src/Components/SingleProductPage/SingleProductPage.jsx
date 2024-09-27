@@ -27,7 +27,7 @@ export default function SingleProductPage({ data, addToCart, setIsModalOpen, isM
     };
 
     if (!item) {
-        return <div>Товар не найден</div>;
+        return <div>Товар не знайдений</div>;
     }
 
     const handleTabClick = (tab) => {

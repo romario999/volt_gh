@@ -156,6 +156,13 @@
 }
 
 @media (max-width: 768px) {
+    .product_page_img {
+        padding-left: 0;
+        max-width: 100%;
+        height: auto;
+        padding-top: 100px;
+    }
+
     .product_page_wrapper {
         padding-top: 2px;
         flex-direction: column; /* Вертикальне розташування для мобільних пристроїв */
