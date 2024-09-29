@@ -4,6 +4,7 @@ import closeSvg from '../../assets/icons/close.svg';
 import novaPoshtaSvg from '../../assets/img/nova_poshta.png';
 import AddToCartModal from '../ModalAddToCart/ModalAddToCart';
 import axios from 'axios';
+import InputMask from 'react-input-mask';
 
 const API_KEY = '89af230f91307419559e290af626f152';
 
@@ -159,7 +160,7 @@ const ModalOrder = ({ isModalOpen, setIsModalOpen, onSubmit, cartList, setCartLi
   };
 
   const validatePhone = (phone) => {
-    const phonePattern = /^\d+$/;
+    const phonePattern = /^\+380 \(\d{2}\) \d{3}-\d{2}-\d{2}$/;
     if (phonePattern.test(phone)) {
       setErrors({ ...errors, phone: false });
     } else {
@@ -332,17 +333,24 @@ const ModalOrder = ({ isModalOpen, setIsModalOpen, onSubmit, cartList, setCartLi
           </div>
           <div className="form-group">
             <label>Номер телефону:</label>
-            <input
-              type="tel"
-              name="phone"
-              value={formData.phone}
-              onChange={handleChange}
-              onBlur={handleBlur}
-              style={{
-                border: errors.phone ? '1px solid red' : null
-              }}
-              required
-            />
+            <InputMask
+        mask="+380 (99) 999-99-99"
+        value={formData.phone}
+        onChange={handleChange}
+        onBlur={handleBlur}
+      >
+        {(inputProps) => (
+          <input
+            {...inputProps}
+            type="tel"
+            name="phone"
+            style={{
+              border: errors.phone ? '1px solid red' : null
+            }}
+            required
+          />
+        )}
+      </InputMask>
             {errors.phone && <span style={{ color: 'red', display: 'block', maxWidth: '100%' }}>Невірний формат номеру</span>}
           </div>
           <div className="form-group">
