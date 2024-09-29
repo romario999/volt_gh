@@ -18,7 +18,7 @@ export default function SingleProductPage({ data, addToCart, setIsModalOpen, isM
 
     useEffect(() => {
         window.scrollTo(0, 0);
-      }, []);
+    }, []);
     
     const incrementQuantity = () => {
         setQuantity(prevQuantity => prevQuantity + 1);
