@@ -1,6 +1,9 @@
 import './SingleProductPage.css';
 import img from '../../assets/img/goods/cell_power.jpg';
-import cartImg from '../../assets/icons/cart1.svg'
+import cartImg from '../../assets/icons/cart1.svg';
+import deliveryImg from '../../assets/icons/delivery.svg';
+import payImg from '../../assets/icons/pay.svg';
+import warrantyImg from '../../assets/icons/warranty.svg';
 import { useState } from 'react';
 import SinglePageAboutProduct from '../SinglePageAboutProduct/SinglePageAboutProduct';
 import SinglePageCharProduct from '../SinglePageCharProduct/SinglePageCharProduct';
@@ -66,6 +69,43 @@ export default function SingleProductPage({ data, addToCart, setIsModalOpen, isM
                     <button onClick={(e) => {e.stopPropagation(); incrementQuantity();}}>+</button>
                 </div>
                     <button className='add_to_cart_btn' onClick={() => addToCart([item, quantity])}><img src={cartImg} alt="cart-icon" />Додати у кошик</button>
+                </div>
+                <div className="product_page_deliv_info_wrapper">
+                    <div className="product_page_info_item">
+                        <div className="product_page_info_item_wrapper">
+                            <div>
+                                <img src={deliveryImg} alt="delivery img" className='svg_info_item'/>
+                            </div>
+                            <div className='product_page_info_item_descr'>
+                                <h4>Доставка</h4>
+                                <p>На наступний день при замовленні до 12:00</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div className="product_page_info_item">
+                        <div className="product_page_info_item_wrapper">
+                            <div>
+                                <img src={payImg} alt="pay img" className='svg_info_item'/>
+                            </div>
+                            <div className='product_page_info_item_descr'>
+                                <h4>Оплата онлайн</h4>
+                                <p>Зручна оплата товару за реквізитами</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div className="product_page_info_item">
+                        <div className="product_page_info_item_wrapper">
+                            <div>
+                                <img src={warrantyImg} alt="warranty img" className='svg_info_item'/>
+                            </div>
+                            <div className='product_page_info_item_descr'>
+                                <h4>Гарантія</h4>
+                                <p>Надаємо річну гарантію на придбаний товар</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
             <AddToCartModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} text={"Товар доданий в кошик!"} />
