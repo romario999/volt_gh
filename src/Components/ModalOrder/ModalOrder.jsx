@@ -137,6 +137,37 @@ const ModalOrder = ({ isModalOpen, setIsModalOpen, onSubmit, cartList, setCartLi
     }
   };
 
+  const handleBlur = (e) => {
+    const { value } = e.target;
+    if(e.target.name === 'email') {
+      validateEmail(value);
+    }
+
+    if(e.target.name === 'phone') {
+      validatePhone(value);
+    }
+  };
+
+  const validateEmail = (email) => {
+    const emailPattern = /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/i;
+    if (emailPattern.test(email)) {
+      setErrors({ ...errors, email: false });
+    } else {
+      setErrors({ ...errors, email: true });
+      setIsFormValid(false);
+    }
+  };
+
+  const validatePhone = (phone) => {
+    const phonePattern = /^\d+$/;
+    if (phonePattern.test(phone)) {
+      setErrors({ ...errors, phone: false });
+    } else {
+      setErrors({ ...errors, phone: true });
+      setIsFormValid(false);
+    }
+  };
+
   const handleRegionChange = (e) => {
     const { value } = e.target;
     setInputValues({ ...inputValues, region: value, city: '', department: '' });
@@ -306,11 +337,13 @@ const ModalOrder = ({ isModalOpen, setIsModalOpen, onSubmit, cartList, setCartLi
               name="phone"
               value={formData.phone}
               onChange={handleChange}
+              onBlur={handleBlur}
               style={{
                 border: errors.phone ? '1px solid red' : null
               }}
               required
             />
+            {errors.phone && <span style={{ color: 'red', display: 'block', maxWidth: '100%' }}>Невірний формат номеру</span>}
           </div>
           <div className="form-group">
             <label>Email:</label>
@@ -322,8 +355,10 @@ const ModalOrder = ({ isModalOpen, setIsModalOpen, onSubmit, cartList, setCartLi
               style={{
                 border: errors.email ? '1px solid red' : null
               }}
+              onBlur={handleBlur}
               required
             />
+            {errors.email && <span style={{ color: 'red', display: 'block' }}>Невірний формат емейлу</span>}
           </div>
           </form>
           <div className='order_modal_title'>
